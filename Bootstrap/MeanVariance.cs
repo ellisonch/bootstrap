@@ -10,8 +10,8 @@ namespace Bootstrap {
     public class MeanVariance {
         private int m_n = 0;
         double m_oldM;
-        double m_newM;
-        double m_oldS;
+        double m_newM = 0.0;
+        double m_oldS = 0.0;
         double m_newS;
 
 
@@ -28,8 +28,8 @@ namespace Bootstrap {
 
             // See Knuth TAOCP vol 2, 3rd edition, page 232
             if (m_n == 1) {
-                m_oldM = m_newM = x;
-                m_oldS = 0.0;
+                m_oldM = x;
+                m_newM = x;
             } else {
                 m_newM = m_oldM + (x - m_oldM) / m_n;
                 m_newS = m_oldS + (x - m_oldM) * (x - m_newM);
